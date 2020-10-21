@@ -1,0 +1,743 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2020-10-14 17:23+0000\n"
+"PO-Revision-Date: 2020-10-14 16:48-0400\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Language: fr_CA\n"
+
+#: Controller/AddressesController.php:54 Controller/AddressesController.php:78
+msgid "The address has been saved."
+msgstr "L'adresse a été enregistré"
+
+#: Controller/AddressesController.php:58 Controller/AddressesController.php:82
+msgid "The address could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AddressesController.php:99
+msgid "The address has been deleted."
+msgstr ""
+
+#: Controller/AddressesController.php:101
+msgid "The address could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/CustomersController.php:78 Controller/CustomersController.php:103
+msgid "The customer has been saved."
+msgstr ""
+
+#: Controller/CustomersController.php:82 Controller/CustomersController.php:107
+msgid "The customer could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/CustomersController.php:125
+msgid "The customer has been deleted."
+msgstr ""
+
+#: Controller/CustomersController.php:127
+msgid "The customer could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/MedicationCompaniesController.php:54
+#: Controller/MedicationCompaniesController.php:78
+msgid "The medication company has been saved."
+msgstr ""
+
+#: Controller/MedicationCompaniesController.php:58
+#: Controller/MedicationCompaniesController.php:82
+msgid "The medication company could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/MedicationCompaniesController.php:99
+msgid "The medication company has been deleted."
+msgstr ""
+
+#: Controller/MedicationCompaniesController.php:101
+msgid "The medication company could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/MedicationsController.php:57
+#: Controller/MedicationsController.php:82
+msgid "The medication has been saved."
+msgstr ""
+
+#: Controller/MedicationsController.php:61
+#: Controller/MedicationsController.php:86
+msgid "The medication could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/MedicationsController.php:104
+msgid "The medication has been deleted."
+msgstr ""
+
+#: Controller/MedicationsController.php:106
+msgid "The medication could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PhysiciansController.php:57
+#: Controller/PhysiciansController.php:82
+msgid "The physician has been saved."
+msgstr ""
+
+#: Controller/PhysiciansController.php:61
+#: Controller/PhysiciansController.php:86
+msgid "The physician could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PhysiciansController.php:104
+msgid "The physician has been deleted."
+msgstr ""
+
+#: Controller/PhysiciansController.php:106
+msgid "The physician could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PrescriptionItemsController.php:57
+#: Controller/PrescriptionItemsController.php:83
+msgid "The prescription item has been saved."
+msgstr ""
+
+#: Controller/PrescriptionItemsController.php:61
+#: Controller/PrescriptionItemsController.php:87
+msgid "The prescription item could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PrescriptionItemsController.php:106
+msgid "The prescription item has been deleted."
+msgstr ""
+
+#: Controller/PrescriptionItemsController.php:108
+msgid "The prescription item could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PrescriptionsController.php:57
+#: Controller/PrescriptionsController.php:83
+msgid "The prescription has been saved."
+msgstr ""
+
+#: Controller/PrescriptionsController.php:61
+#: Controller/PrescriptionsController.php:87
+msgid "The prescription could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PrescriptionsController.php:106
+msgid "The prescription has been deleted."
+msgstr ""
+
+#: Controller/PrescriptionsController.php:108
+msgid "The prescription could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:79 Controller/UsersController.php:103
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:83 Controller/UsersController.php:107
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:124
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:126
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Addresses/add.ctp:9 Template/Addresses/edit.ctp:9
+#: Template/Addresses/index.ctp:9 Template/Addresses/index.ctp:33
+#: Template/Addresses/view.ctp:9 Template/Addresses/view.ctp:80
+#: Template/Addresses/view.ctp:111 Template/Customers/add.ctp:9
+#: Template/Customers/edit.ctp:9 Template/Customers/index.ctp:9
+#: Template/Customers/index.ctp:27 Template/Customers/view.ctp:9
+#: Template/MedicationCompanies/add.ctp:9
+#: Template/MedicationCompanies/edit.ctp:9
+#: Template/MedicationCompanies/index.ctp:9
+#: Template/MedicationCompanies/index.ctp:23
+#: Template/MedicationCompanies/view.ctp:9 Template/Medications/add.ctp:9
+#: Template/Medications/edit.ctp:9 Template/Medications/index.ctp:9
+#: Template/Medications/index.ctp:29 Template/Medications/view.ctp:9
+#: Template/Medications/view.ctp:63 Template/Physicians/add.ctp:9
+#: Template/Physicians/edit.ctp:9 Template/Physicians/index.ctp:9
+#: Template/Physicians/index.ctp:27 Template/Physicians/view.ctp:9
+#: Template/Physicians/view.ctp:55 Template/PrescriptionItems/add.ctp:9
+#: Template/PrescriptionItems/edit.ctp:9 Template/PrescriptionItems/index.ctp:9
+#: Template/PrescriptionItems/index.ctp:28
+#: Template/PrescriptionItems/view.ctp:9 Template/Prescriptions/add.ctp:9
+#: Template/Prescriptions/edit.ctp:9 Template/Prescriptions/index.ctp:9
+#: Template/Prescriptions/index.ctp:30 Template/Prescriptions/view.ctp:9
+#: Template/Prescriptions/view.ctp:61 Template/Users/add.ctp:9
+#: Template/Users/edit.ctp:9 Template/Users/index.ctp:9
+#: Template/Users/index.ctp:26 Template/Users/view.ctp:9
+#: Template/Users/view.ctp:58
+msgid "Actions"
+msgstr "Commandes"
+
+#: Template/Addresses/add.ctp:10 Template/Addresses/edit.ctp:16
+#: Template/Addresses/view.ctp:12 Template/Physicians/add.ctp:11
+#: Template/Physicians/edit.ctp:17 Template/Physicians/index.ctp:11
+#: Template/Physicians/view.ctp:14
+msgid "List Addresses"
+msgstr "Liste d'adresses"
+
+#: Template/Addresses/add.ctp:11 Template/Addresses/edit.ctp:17
+#: Template/Addresses/index.ctp:11 Template/Addresses/view.ctp:14
+#: Template/Customers/add.ctp:10 Template/Customers/edit.ctp:16
+#: Template/Customers/view.ctp:12 Template/Prescriptions/add.ctp:11
+#: Template/Prescriptions/edit.ctp:17 Template/Prescriptions/index.ctp:11
+#: Template/Prescriptions/view.ctp:14 Template/Users/add.ctp:11
+#: Template/Users/edit.ctp:17 Template/Users/index.ctp:11
+#: Template/Users/view.ctp:14
+msgid "List Customers"
+msgstr "Liste de Clients"
+
+#: Template/Addresses/add.ctp:12 Template/Addresses/edit.ctp:18
+#: Template/Addresses/index.ctp:12 Template/Addresses/view.ctp:15
+#: Template/Customers/index.ctp:10 Template/Customers/view.ctp:13
+#: Template/Prescriptions/add.ctp:12 Template/Prescriptions/edit.ctp:18
+#: Template/Prescriptions/index.ctp:12 Template/Prescriptions/view.ctp:15
+#: Template/Users/add.ctp:12 Template/Users/edit.ctp:18
+#: Template/Users/index.ctp:12 Template/Users/view.ctp:15
+msgid "New Customer"
+msgstr "Nouveau Client"
+
+#: Template/Addresses/add.ctp:13 Template/Addresses/edit.ctp:19
+#: Template/Addresses/index.ctp:13 Template/Addresses/view.ctp:16
+#: Template/Physicians/add.ctp:10 Template/Physicians/edit.ctp:16
+#: Template/Physicians/view.ctp:12 Template/Prescriptions/add.ctp:13
+#: Template/Prescriptions/edit.ctp:19 Template/Prescriptions/index.ctp:13
+#: Template/Prescriptions/view.ctp:16
+msgid "List Physicians"
+msgstr "Liste de Médecins"
+
+#: Template/Addresses/add.ctp:14 Template/Addresses/edit.ctp:20
+#: Template/Addresses/index.ctp:14 Template/Addresses/view.ctp:17
+#: Template/Physicians/index.ctp:10 Template/Physicians/view.ctp:13
+#: Template/Prescriptions/add.ctp:14 Template/Prescriptions/edit.ctp:20
+#: Template/Prescriptions/index.ctp:14 Template/Prescriptions/view.ctp:17
+msgid "New Physician"
+msgstr "Nouveau Médecin"
+
+#: Template/Addresses/add.ctp:20
+msgid "Add Address"
+msgstr "Ajouter Adresse"
+
+#: Template/Addresses/add.ctp:32 Template/Addresses/edit.ctp:38
+#: Template/Customers/add.ctp:25 Template/Customers/edit.ctp:32
+#: Template/MedicationCompanies/add.ctp:22
+#: Template/MedicationCompanies/edit.ctp:28 Template/Medications/add.ctp:28
+#: Template/Medications/edit.ctp:34 Template/Physicians/add.ctp:26
+#: Template/Physicians/edit.ctp:32 Template/PrescriptionItems/add.ctp:25
+#: Template/PrescriptionItems/edit.ctp:31 Template/Prescriptions/add.ctp:29
+#: Template/Prescriptions/edit.ctp:35 Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:31
+msgid "Submit"
+msgstr "Soumettre"
+
+#: Template/Addresses/edit.ctp:11 Template/Addresses/index.ctp:53
+#: Template/Addresses/view.ctp:94 Template/Addresses/view.ctp:123
+#: Template/Customers/edit.ctp:11 Template/Customers/index.ctp:43
+#: Template/MedicationCompanies/edit.ctp:11
+#: Template/MedicationCompanies/index.ctp:37 Template/Medications/edit.ctp:11
+#: Template/Medications/index.ctp:45 Template/Medications/view.ctp:76
+#: Template/Physicians/edit.ctp:11 Template/Physicians/index.ctp:41
+#: Template/Physicians/view.ctp:68 Template/PrescriptionItems/edit.ctp:11
+#: Template/PrescriptionItems/index.ctp:43 Template/Prescriptions/edit.ctp:11
+#: Template/Prescriptions/index.ctp:45 Template/Prescriptions/view.ctp:74
+#: Template/Users/edit.ctp:11 Template/Users/index.ctp:41
+#: Template/Users/view.ctp:72
+msgid "Delete"
+msgstr "Supprimer"
+
+#: Template/Addresses/edit.ctp:13 Template/Addresses/index.ctp:53
+#: Template/Addresses/view.ctp:11 Template/Addresses/view.ctp:94
+#: Template/Addresses/view.ctp:123 Template/Customers/edit.ctp:13
+#: Template/Customers/index.ctp:43 Template/Customers/view.ctp:11
+#: Template/MedicationCompanies/edit.ctp:13
+#: Template/MedicationCompanies/index.ctp:37
+#: Template/MedicationCompanies/view.ctp:11 Template/Medications/edit.ctp:13
+#: Template/Medications/index.ctp:45 Template/Medications/view.ctp:11
+#: Template/Medications/view.ctp:76 Template/Physicians/edit.ctp:13
+#: Template/Physicians/index.ctp:41 Template/Physicians/view.ctp:11
+#: Template/Physicians/view.ctp:68 Template/PrescriptionItems/edit.ctp:13
+#: Template/PrescriptionItems/index.ctp:43
+#: Template/PrescriptionItems/view.ctp:11 Template/Prescriptions/edit.ctp:13
+#: Template/Prescriptions/index.ctp:45 Template/Prescriptions/view.ctp:11
+#: Template/Prescriptions/view.ctp:74 Template/Users/edit.ctp:13
+#: Template/Users/index.ctp:41 Template/Users/view.ctp:11
+#: Template/Users/view.ctp:72
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Addresses/edit.ctp:26 Template/Addresses/view.ctp:10
+msgid "Edit Address"
+msgstr "Modifier Adresse"
+
+#: Template/Addresses/index.ctp:10 Template/Addresses/view.ctp:13
+#: Template/Physicians/add.ctp:12 Template/Physicians/edit.ctp:18
+#: Template/Physicians/index.ctp:12 Template/Physicians/view.ctp:15
+msgid "New Address"
+msgstr "Nouvelle adresse"
+
+#: Template/Addresses/index.ctp:18
+msgid "Addresses"
+msgstr ""
+
+#: Template/Addresses/index.ctp:51 Template/Addresses/view.ctp:92
+#: Template/Addresses/view.ctp:121 Template/Customers/index.ctp:41
+#: Template/MedicationCompanies/index.ctp:35 Template/Medications/index.ctp:43
+#: Template/Medications/view.ctp:74 Template/Physicians/index.ctp:39
+#: Template/Physicians/view.ctp:66 Template/PrescriptionItems/index.ctp:41
+#: Template/Prescriptions/index.ctp:43 Template/Prescriptions/view.ctp:72
+#: Template/Users/index.ctp:39 Template/Users/view.ctp:70
+msgid "View"
+msgstr "Vue"
+
+#: Template/Addresses/index.ctp:52 Template/Addresses/view.ctp:93
+#: Template/Addresses/view.ctp:122 Template/Customers/index.ctp:42
+#: Template/MedicationCompanies/index.ctp:36 Template/Medications/index.ctp:44
+#: Template/Medications/view.ctp:75 Template/Physicians/index.ctp:40
+#: Template/Physicians/view.ctp:67 Template/PrescriptionItems/index.ctp:42
+#: Template/Prescriptions/index.ctp:44 Template/Prescriptions/view.ctp:73
+#: Template/Users/index.ctp:40 Template/Users/view.ctp:71
+msgid "Edit"
+msgstr "Modifier"
+
+#: Template/Addresses/index.ctp:61 Template/Customers/index.ctp:51
+#: Template/MedicationCompanies/index.ctp:45 Template/Medications/index.ctp:53
+#: Template/Physicians/index.ctp:49 Template/PrescriptionItems/index.ctp:51
+#: Template/Prescriptions/index.ctp:53 Template/Users/index.ctp:49
+msgid "first"
+msgstr "premier"
+
+#: Template/Addresses/index.ctp:62 Template/Customers/index.ctp:52
+#: Template/MedicationCompanies/index.ctp:46 Template/Medications/index.ctp:54
+#: Template/Physicians/index.ctp:50 Template/PrescriptionItems/index.ctp:52
+#: Template/Prescriptions/index.ctp:54 Template/Users/index.ctp:50
+msgid "previous"
+msgstr "précédent"
+
+#: Template/Addresses/index.ctp:64 Template/Customers/index.ctp:54
+#: Template/MedicationCompanies/index.ctp:48 Template/Medications/index.ctp:56
+#: Template/Physicians/index.ctp:52 Template/PrescriptionItems/index.ctp:54
+#: Template/Prescriptions/index.ctp:56 Template/Users/index.ctp:52
+msgid "next"
+msgstr "prochain"
+
+#: Template/Addresses/index.ctp:65 Template/Customers/index.ctp:55
+#: Template/MedicationCompanies/index.ctp:49 Template/Medications/index.ctp:57
+#: Template/Physicians/index.ctp:53 Template/PrescriptionItems/index.ctp:55
+#: Template/Prescriptions/index.ctp:57 Template/Users/index.ctp:53
+msgid "last"
+msgstr "dernier"
+
+#: Template/Addresses/index.ctp:67 Template/Customers/index.ctp:57
+#: Template/MedicationCompanies/index.ctp:51 Template/Medications/index.ctp:59
+#: Template/Physicians/index.ctp:55 Template/PrescriptionItems/index.ctp:57
+#: Template/Prescriptions/index.ctp:59 Template/Users/index.ctp:55
+msgid ""
+"Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} "
+"total"
+msgstr ""
+
+#: Template/Addresses/view.ctp:11
+msgid "Delete Address"
+msgstr "Supprimer Adresse"
+
+#: Template/Addresses/view.ctp:24
+msgid "Number Building"
+msgstr "Appartement"
+
+#: Template/Addresses/view.ctp:28
+msgid "Number Street"
+msgstr "Rue"
+
+#: Template/Addresses/view.ctp:32
+msgid "Area Locality"
+msgstr ""
+
+#: Template/Addresses/view.ctp:36
+msgid "City"
+msgstr "Ville"
+
+#: Template/Addresses/view.ctp:40
+msgid "Zip Code"
+msgstr "Code Postal"
+
+#: Template/Addresses/view.ctp:44
+msgid "State Province"
+msgstr "État/Province"
+
+#: Template/Addresses/view.ctp:48
+msgid "Country"
+msgstr "Pays"
+
+#: Template/Addresses/view.ctp:52
+msgid "Other Details"
+msgstr "Autre détails"
+
+#: Template/Addresses/view.ctp:56 Template/Addresses/view.ctp:73
+#: Template/Addresses/view.ctp:106 Template/Customers/view.ctp:34
+#: Template/MedicationCompanies/view.ctp:28 Template/Medications/view.ctp:40
+#: Template/Medications/view.ctp:57 Template/Physicians/view.ctp:32
+#: Template/Physicians/view.ctp:49 Template/PrescriptionItems/view.ctp:32
+#: Template/Prescriptions/view.ctp:38 Template/Prescriptions/view.ctp:55
+#: Template/Users/view.ctp:34 Template/Users/view.ctp:51
+msgid "Id"
+msgstr ""
+
+#: Template/Addresses/view.ctp:60 Template/Addresses/view.ctp:78
+#: Template/Addresses/view.ctp:109 Template/Customers/view.ctp:42
+#: Template/MedicationCompanies/view.ctp:32 Template/Medications/view.ctp:44
+#: Template/Medications/view.ctp:61 Template/Physicians/view.ctp:36
+#: Template/Physicians/view.ctp:53 Template/PrescriptionItems/view.ctp:40
+#: Template/Prescriptions/view.ctp:42 Template/Prescriptions/view.ctp:59
+#: Template/Users/view.ctp:38 Template/Users/view.ctp:56
+msgid "Created"
+msgstr "Créé"
+
+#: Template/Addresses/view.ctp:64 Template/Addresses/view.ctp:79
+#: Template/Addresses/view.ctp:110 Template/Customers/view.ctp:46
+#: Template/MedicationCompanies/view.ctp:36 Template/Medications/view.ctp:48
+#: Template/Medications/view.ctp:62 Template/Physicians/view.ctp:40
+#: Template/Physicians/view.ctp:54 Template/PrescriptionItems/view.ctp:44
+#: Template/Prescriptions/view.ctp:46 Template/Prescriptions/view.ctp:60
+#: Template/Users/view.ctp:42 Template/Users/view.ctp:57
+msgid "Modified"
+msgstr "Modifié"
+
+#: Template/Addresses/view.ctp:69 Template/Users/view.ctp:47
+msgid "Related Customers"
+msgstr "Clients liés"
+
+#: Template/Addresses/view.ctp:74 Template/Users/view.ctp:52
+msgid "User Id"
+msgstr ""
+
+#: Template/Addresses/view.ctp:75 Template/Addresses/view.ctp:107
+#: Template/Customers/view.ctp:38 Template/Users/view.ctp:53
+msgid "Address Id"
+msgstr ""
+
+#: Template/Addresses/view.ctp:76 Template/Customers/view.ctp:26
+#: Template/Users/view.ctp:54
+msgid "Customer Name"
+msgstr "Nom du Client"
+
+#: Template/Addresses/view.ctp:77 Template/Customers/view.ctp:30
+#: Template/Users/view.ctp:55
+msgid "Slug"
+msgstr ""
+
+#: Template/Addresses/view.ctp:102
+msgid "Related Physicians"
+msgstr "Médecins liés"
+
+#: Template/Addresses/view.ctp:108 Template/MedicationCompanies/view.ctp:24
+#: Template/Physicians/view.ctp:28 Template/Physicians/view.ctp:52
+#: Template/Prescriptions/view.ctp:34
+msgid "Details"
+msgstr ""
+
+#: Template/Customers/add.ctp:11 Template/Customers/edit.ctp:17
+#: Template/Customers/index.ctp:11 Template/Customers/view.ctp:14
+#: Template/Users/add.ctp:10 Template/Users/edit.ctp:16
+#: Template/Users/view.ctp:12
+msgid "List Users"
+msgstr "Liste d'utilisateurs"
+
+#: Template/Customers/add.ctp:12 Template/Customers/edit.ctp:18
+#: Template/Customers/index.ctp:12 Template/Customers/view.ctp:15
+#: Template/Users/index.ctp:10 Template/Users/view.ctp:13
+msgid "New User"
+msgstr "Nouvel Utilisateur"
+
+#: Template/Customers/add.ctp:18
+msgid "Add Customer"
+msgstr "Ajouter Client"
+
+#: Template/Customers/edit.ctp:24 Template/Customers/view.ctp:10
+msgid "Edit Customer"
+msgstr "Modifier Client"
+
+#: Template/Customers/index.ctp:16
+msgid "Customers"
+msgstr "Clients"
+
+#: Template/Customers/view.ctp:11
+msgid "Delete Customer"
+msgstr "Supprimer Client"
+
+#: Template/Customers/view.ctp:22
+msgid "User"
+msgstr "Utilisateurs"
+
+#: Template/Layout/error.ctp:36
+msgid "Error"
+msgstr "Erreur"
+
+#: Template/Layout/error.ctp:44
+msgid "Back"
+msgstr "Retour"
+
+#: Template/MedicationCompanies/add.ctp:10
+#: Template/MedicationCompanies/edit.ctp:16
+#: Template/MedicationCompanies/view.ctp:12
+msgid "List Medication Companies"
+msgstr "Liste de Compagnies de Médicaments"
+
+#: Template/MedicationCompanies/add.ctp:16
+msgid "Add Medication Company"
+msgstr "Ajouter Compagnie de Médicaments"
+
+#: Template/MedicationCompanies/edit.ctp:22
+#: Template/MedicationCompanies/view.ctp:10
+msgid "Edit Medication Company"
+msgstr "Modifier Compagnie de Médicaments"
+
+#: Template/MedicationCompanies/index.ctp:10
+#: Template/MedicationCompanies/view.ctp:13
+msgid "New Medication Company"
+msgstr "Nouvelle Compagnie de Médicaments"
+
+#: Template/MedicationCompanies/index.ctp:14
+msgid "Medication Companies"
+msgstr "Compagnies de Médicaments"
+
+#: Template/MedicationCompanies/view.ctp:11
+msgid "Delete Medication Company"
+msgstr "Supprimer Compagnie de Médicaments"
+
+#: Template/MedicationCompanies/view.ctp:20
+msgid "Company"
+msgstr "Compagnie"
+
+#: Template/Medications/add.ctp:10 Template/Medications/edit.ctp:16
+#: Template/Medications/view.ctp:12 Template/PrescriptionItems/add.ctp:13
+#: Template/PrescriptionItems/edit.ctp:19
+#: Template/PrescriptionItems/index.ctp:13
+#: Template/PrescriptionItems/view.ctp:16
+msgid "List Medications"
+msgstr ""
+
+#: Template/Medications/add.ctp:11 Template/Medications/edit.ctp:17
+#: Template/Medications/index.ctp:11 Template/Medications/view.ctp:14
+msgid "List Medicationcompanies"
+msgstr ""
+
+#: Template/Medications/add.ctp:12 Template/Medications/edit.ctp:18
+#: Template/Medications/index.ctp:12 Template/Medications/view.ctp:15
+msgid "New Medicationcompany"
+msgstr ""
+
+#: Template/Medications/add.ctp:13 Template/Medications/edit.ctp:19
+#: Template/Medications/index.ctp:13 Template/Medications/view.ctp:16
+#: Template/Prescriptions/add.ctp:15 Template/Prescriptions/edit.ctp:21
+#: Template/Prescriptions/index.ctp:15 Template/Prescriptions/view.ctp:18
+msgid "List Prescriptionitems"
+msgstr ""
+
+#: Template/Medications/add.ctp:14 Template/Medications/edit.ctp:20
+#: Template/Medications/index.ctp:14 Template/Medications/view.ctp:17
+#: Template/Prescriptions/add.ctp:16 Template/Prescriptions/edit.ctp:22
+#: Template/Prescriptions/index.ctp:16 Template/Prescriptions/view.ctp:19
+msgid "New Prescriptionitem"
+msgstr ""
+
+#: Template/Medications/add.ctp:20
+msgid "Add Medication"
+msgstr "Ajouter Médication"
+
+#: Template/Medications/edit.ctp:26 Template/Medications/view.ctp:10
+msgid "Edit Medication"
+msgstr "Modifier Médication"
+
+#: Template/Medications/index.ctp:10 Template/Medications/view.ctp:13
+#: Template/PrescriptionItems/add.ctp:14 Template/PrescriptionItems/edit.ctp:20
+#: Template/PrescriptionItems/index.ctp:14
+#: Template/PrescriptionItems/view.ctp:17
+msgid "New Medication"
+msgstr "Nouvelle Médication"
+
+#: Template/Medications/index.ctp:18
+msgid "Medications"
+msgstr "Médications"
+
+#: Template/Medications/view.ctp:11
+msgid "Delete Medication"
+msgstr "Supprimer Medication"
+
+#: Template/Medications/view.ctp:24
+msgid "Medicationcompany"
+msgstr ""
+
+#: Template/Medications/view.ctp:28 Template/PrescriptionItems/view.ctp:28
+msgid "Medication"
+msgstr ""
+
+#: Template/Medications/view.ctp:32
+msgid "Cost"
+msgstr "Coût"
+
+#: Template/Medications/view.ctp:36
+msgid "Description"
+msgstr ""
+
+#: Template/Medications/view.ctp:53 Template/Prescriptions/view.ctp:51
+msgid "Related Prescriptionitems"
+msgstr ""
+
+#: Template/Medications/view.ctp:58 Template/Prescriptions/view.ctp:56
+msgid "Prescription Id"
+msgstr ""
+
+#: Template/Medications/view.ctp:59 Template/Prescriptions/view.ctp:57
+msgid "Medication Id"
+msgstr ""
+
+#: Template/Medications/view.ctp:60 Template/PrescriptionItems/view.ctp:36
+#: Template/Prescriptions/view.ctp:58
+msgid "Quantity"
+msgstr "Quantité"
+
+#: Template/Physicians/add.ctp:13 Template/Physicians/edit.ctp:19
+#: Template/Physicians/index.ctp:13 Template/Physicians/view.ctp:16
+#: Template/PrescriptionItems/add.ctp:11 Template/PrescriptionItems/edit.ctp:17
+#: Template/PrescriptionItems/index.ctp:11
+#: Template/PrescriptionItems/view.ctp:14 Template/Prescriptions/add.ctp:10
+#: Template/Prescriptions/edit.ctp:16 Template/Prescriptions/view.ctp:12
+msgid "List Prescriptions"
+msgstr "Liste de Prescriptions"
+
+#: Template/Physicians/add.ctp:14 Template/Physicians/edit.ctp:20
+#: Template/Physicians/index.ctp:14 Template/Physicians/view.ctp:17
+#: Template/PrescriptionItems/add.ctp:12 Template/PrescriptionItems/edit.ctp:18
+#: Template/PrescriptionItems/index.ctp:12
+#: Template/PrescriptionItems/view.ctp:15 Template/Prescriptions/index.ctp:10
+#: Template/Prescriptions/view.ctp:13
+msgid "New Prescription"
+msgstr "Nouvelle Prescription"
+
+#: Template/Physicians/add.ctp:20
+msgid "Add Physician"
+msgstr "Ajouter Médecin"
+
+#: Template/Physicians/edit.ctp:26 Template/Physicians/view.ctp:10
+msgid "Edit Physician"
+msgstr "Modifier Médecin"
+
+#: Template/Physicians/index.ctp:18
+msgid "Physicians"
+msgstr "Médecins"
+
+#: Template/Physicians/view.ctp:11
+msgid "Delete Physician"
+msgstr "Supprimer Médecin"
+
+#: Template/Physicians/view.ctp:24
+msgid "Address"
+msgstr "Adresse"
+
+#: Template/Physicians/view.ctp:45
+msgid "Related Prescriptions"
+msgstr "Prescriptions liées"
+
+#: Template/Physicians/view.ctp:50
+msgid "Customer Id"
+msgstr "Id Client"
+
+#: Template/Physicians/view.ctp:51
+msgid "Physician Id"
+msgstr "Id Médecin"
+
+#: Template/PrescriptionItems/add.ctp:10 Template/PrescriptionItems/edit.ctp:16
+#: Template/PrescriptionItems/view.ctp:12
+msgid "List Prescription Items"
+msgstr "List d'articles de Prescription"
+
+#: Template/PrescriptionItems/add.ctp:20
+msgid "Add Prescription Item"
+msgstr "Ajouter Article de Prescription"
+
+#: Template/PrescriptionItems/edit.ctp:26
+#: Template/PrescriptionItems/view.ctp:10
+msgid "Edit Prescription Item"
+msgstr "Modifier Article de Prescription"
+
+#: Template/PrescriptionItems/index.ctp:10
+#: Template/PrescriptionItems/view.ctp:13
+msgid "New Prescription Item"
+msgstr "Nouvel Article de Prescription"
+
+#: Template/PrescriptionItems/index.ctp:18
+msgid "Prescription Items"
+msgstr "Articles de Prescription"
+
+#: Template/PrescriptionItems/view.ctp:11
+msgid "Delete Prescription Item"
+msgstr ""
+
+#: Template/PrescriptionItems/view.ctp:24
+msgid "Prescription"
+msgstr ""
+
+#: Template/Prescriptions/add.ctp:22
+msgid "Add Prescription"
+msgstr "Ajouter Prescription"
+
+#: Template/Prescriptions/edit.ctp:28 Template/Prescriptions/view.ctp:10
+msgid "Edit Prescription"
+msgstr "Modifier Prescription"
+
+#: Template/Prescriptions/index.ctp:20
+msgid "Prescriptions"
+msgstr ""
+
+#: Template/Prescriptions/view.ctp:11
+msgid "Delete Prescription"
+msgstr "Supprimer Prescription"
+
+#: Template/Prescriptions/view.ctp:26
+msgid "Customer"
+msgstr "Client"
+
+#: Template/Prescriptions/view.ctp:30
+msgid "Physician"
+msgstr "Médecin"
+
+#: Template/Users/add.ctp:18
+msgid "Add User"
+msgstr "Ajouter Utilisateur"
+
+#: Template/Users/edit.ctp:24 Template/Users/view.ctp:10
+msgid "Edit User"
+msgstr "Modifier Utilisateur"
+
+#: Template/Users/index.ctp:16
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: Template/Users/view.ctp:11
+msgid "Delete User"
+msgstr "Supprimer Utilisateurs"
+
+#: Template/Users/view.ctp:22
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: Template/Users/view.ctp:26
+msgid "Email"
+msgstr "Courriel"
+
+#: Template/Users/view.ctp:30
+msgid "Password"
+msgstr "Mot de passe"
