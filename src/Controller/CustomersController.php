@@ -18,6 +18,7 @@ class CustomersController extends AppController
 		
 		$this->loadComponent('Flash');
 		$this->loadModel('Files');
+		$this->viewBuilder()->setLayout('cakephp_default');
 	}
 	 
 	public function isAuthorized($user) 
@@ -65,7 +66,7 @@ class CustomersController extends AppController
 
         $this->set('customer', $customer);
 		
-				$uploadData = '';
+		$uploadData = '';
 		
 		if ($this->request->is('post')) {
 			if(!empty($this->request->data['file']['name'])) {

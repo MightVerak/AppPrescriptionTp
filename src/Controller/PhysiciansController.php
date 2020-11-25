@@ -12,6 +12,11 @@ use App\Controller\AppController;
  */
 class PhysiciansController extends AppController
 {
+	public function initialize() 
+	{
+		parent::initialize();
+		$this->viewBuilder()->setLayout('cakephp_default');
+	}
     /**
      * Index method
      *
@@ -22,7 +27,7 @@ class PhysiciansController extends AppController
 	{
 		$action = $this->request->getParam('action');
 		
-		if (in_array($action, ['index'])) {
+		if (in_array($action, ['index', 'add'])) {
 			return true;
 		}
 		

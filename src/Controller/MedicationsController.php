@@ -17,36 +17,52 @@ class MedicationsController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-	 
-	public function isAuthorized($user) 
-	{
-		$action = $this->request->getParam('action');
-		
-		if (in_array($action, ['index'])) {
-			return true;
-		}
-		
-		$id = $this->request->getParam('pass.0');
-		if (!$id) {
-			return false;
-		}
-		
-		if ($id == $user['id']) {
-			return true;
-		} else {
-			return parent::isAuthorized($user);
-		}
-	}
-	
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Medicationcompanies'],
-        ];
         $medications = $this->paginate($this->Medications);
 
         $this->set(compact('medications'));
     }
+	
+	public function initialize() {
+		parent::initialize();
+		$this->Auth->allow(['findMedications', 'add', 'edit', 'delete']);
+		$this->viewBuilder()->setLayout('cakephp_default');
+	}
+	
+	public function getByCategory() {
+		$category_id = $this->request->query('category_id');
+		
+		$medications = $this->Medications->find('all', [
+			'conditions' => ['Medications.category_id' => $category_id],
+		]);
+		
+		$data = '';
+		foreach ($medications as $medication) {
+			$data .= '<option value="' . $medication->id . '">' . $medication->medication . '</option>';
+		}
+		$this->autoRender = false;
+		echo $data;
+	
+	}
+	
+	public function findMedications() {
+		
+		if ($this->request->is('ajax')) {
+			
+			$this->autoRender = false;
+			$name = $this->request->query['term'];
+			$results = $this->Medications->find('all', array(
+				'conditions' => array('Medications.medication LIKE ' => '%' . $name . '%')
+			));
+			
+			$resultArr = array();
+			foreach ($results as $result) {
+				$resultArr[] = array('label' => $result['medication'], 'value' => $result['id']);
+			}
+			echo json_encode($resultArr);
+		}
+	}
 
     /**
      * View method
@@ -58,7 +74,7 @@ class MedicationsController extends AppController
     public function view($id = null)
     {
         $medication = $this->Medications->get($id, [
-            'contain' => ['Medicationcompanies', 'Prescriptionitems'],
+            'contain' => ['Concentrations'],
         ]);
 
         $this->set('medication', $medication);
@@ -81,8 +97,8 @@ class MedicationsController extends AppController
             }
             $this->Flash->error(__('The medication could not be saved. Please, try again.'));
         }
-        $medicationcompanies = $this->Medications->Medicationcompanies->find('list', ['limit' => 200]);
-        $this->set(compact('medication', 'medicationcompanies'));
+		$categories = $this->Medications->Categories->find('list', ['limit' => 200]);
+        $this->set(compact('medication', 'categories'));
     }
 
     /**
@@ -95,7 +111,7 @@ class MedicationsController extends AppController
     public function edit($id = null)
     {
         $medication = $this->Medications->get($id, [
-            'contain' => [],
+            'contain' => ['Categories'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $medication = $this->Medications->patchEntity($medication, $this->request->getData());
@@ -106,8 +122,7 @@ class MedicationsController extends AppController
             }
             $this->Flash->error(__('The medication could not be saved. Please, try again.'));
         }
-        $medicationcompanies = $this->Medications->Medicationcompanies->find('list', ['limit' => 200]);
-        $this->set(compact('medication', 'medicationcompanies'));
+        $this->set(compact('medication'));
     }
 
     /**

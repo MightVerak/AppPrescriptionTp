@@ -4,6 +4,15 @@
  * @var \App\Model\Entity\Prescription $prescription
  */
 ?>
+<?php
+$urlToMedicationsAutoCompleteJson = $this->Url->build([
+		"controller" => "Medications",
+		"action" => "findMedications",
+		"_ext" => "json"
+			]);
+echo $this->Html->scriptBlock('var urlToAutocompleteAction = "' . $urlToMedicationsAutoCompleteJson . '";', ['block' => true]);
+echo $this->Html->script('Prescriptions/add_edit/medicationAutocomplete', ['block' => 'scriptBottom']);
+?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -12,8 +21,8 @@
         <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Physicians'), ['controller' => 'Physicians', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Physician'), ['controller' => 'Physicians', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Prescriptionitems'), ['controller' => 'PrescriptionItems', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Prescriptionitem'), ['controller' => 'PrescriptionItems', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Medications'), ['controller' => 'Medications', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Medication'), ['controller' => 'Medications', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="prescriptions form large-9 medium-8 columns content">
@@ -23,6 +32,7 @@
         <?php
             echo $this->Form->control('customer_id', ['options' => $customers]);
             echo $this->Form->control('physician_id', ['options' => $physicians]);
+			echo $this->Form->control('medication_id', ['label' => __('Medication'), 'type' => 'text', 'id' => 'autocomplete']);
             echo $this->Form->control('details');
         ?>
     </fieldset>

@@ -12,6 +12,12 @@ use App\Controller\AppController;
  */
 class RolesController extends AppController
 {
+	
+	public function initialize() 
+	{
+		parent::initialize();
+		$this->viewBuilder()->setLayout('cakephp_default');
+	}
     /**
      * Index method
      *

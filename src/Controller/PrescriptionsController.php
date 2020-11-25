@@ -12,6 +12,12 @@ use App\Controller\AppController;
  */
 class PrescriptionsController extends AppController
 {
+	
+	public function initialize() 
+	{
+		parent::initialize();
+		$this->viewBuilder()->setLayout('cakephp_default');
+	}
     /**
      * Index method
      *
@@ -22,7 +28,7 @@ class PrescriptionsController extends AppController
 	{
 		$action = $this->request->getParam('action');
 		
-		if (in_array($action, ['index'])) {
+		if (in_array($action, ['index', 'add'])) {
 			return true;
 		}
 		
@@ -41,7 +47,7 @@ class PrescriptionsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Customers', 'Physicians'],
+            'contain' => ['Customers', 'Physicians', 'Medications',],
         ];
         $prescriptions = $this->paginate($this->Prescriptions);
 
@@ -58,7 +64,7 @@ class PrescriptionsController extends AppController
     public function view($id = null)
     {
         $prescription = $this->Prescriptions->get($id, [
-            'contain' => ['Customers', 'Physicians', 'Prescriptionitems'],
+            'contain' => ['Customers', 'Physicians', 'Medications'],
         ]);
 
         $this->set('prescription', $prescription);
@@ -83,6 +89,7 @@ class PrescriptionsController extends AppController
         }
         $customers = $this->Prescriptions->Customers->find('list', ['limit' => 200]);
         $physicians = $this->Prescriptions->Physicians->find('list', ['limit' => 200]);
+		$medications = $this->Prescriptions->Medications->find('list', ['limit' => 200]);
         $this->set(compact('prescription', 'customers', 'physicians'));
     }
 
@@ -96,7 +103,7 @@ class PrescriptionsController extends AppController
     public function edit($id = null)
     {
         $prescription = $this->Prescriptions->get($id, [
-            'contain' => [],
+            'contain' => ['Medications'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $prescription = $this->Prescriptions->patchEntity($prescription, $this->request->getData());
@@ -109,7 +116,8 @@ class PrescriptionsController extends AppController
         }
         $customers = $this->Prescriptions->Customers->find('list', ['limit' => 200]);
         $physicians = $this->Prescriptions->Physicians->find('list', ['limit' => 200]);
-        $this->set(compact('prescription', 'customers', 'physicians'));
+		$medications = $this->Prescriptions->Medications->find('list', ['limit' => 200]);
+        $this->set(compact('prescription', 'customers', 'physicians', 'medications'));
     }
 
     /**

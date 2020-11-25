@@ -26,7 +26,7 @@ class PrescriptionsTableTest extends TestCase
         'app.Prescriptions',
         'app.Customers',
         'app.Physicians',
-        'app.Prescriptionitems',
+        'app.PrescriptionItems',
     ];
 
     /**

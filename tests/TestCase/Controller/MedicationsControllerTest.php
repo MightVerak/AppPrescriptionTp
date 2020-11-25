@@ -21,8 +21,7 @@ class MedicationsControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Medications',
-        'app.Medicationcompanies',
-        'app.Prescriptionitems',
+        'app.PrescriptionItems',
     ];
 
     /**

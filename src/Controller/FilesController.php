@@ -12,6 +12,12 @@ use App\Controller\AppController;
  */
 class FilesController extends AppController
 {
+	
+	public function initialize() 
+	{
+		parent::initialize();
+		$this->viewBuilder()->setLayout('cakephp_default');
+	}
     /**
      * Index method
      *

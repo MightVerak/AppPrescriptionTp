@@ -23,6 +23,7 @@ class UsersController extends AppController
 		parent::initialize();
 		$this->Auth->allow(['logout', 'add']);
 		$this->Auth->deny(['index', 'view']);
+		$this->viewBuilder()->setLayout('cakephp_default');
 	}
 	
 	public function isAuthorized($user) 

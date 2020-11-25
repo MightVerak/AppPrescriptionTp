@@ -11,7 +11,8 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\CustomersTable&\Cake\ORM\Association\BelongsTo $Customers
  * @property \App\Model\Table\PhysiciansTable&\Cake\ORM\Association\BelongsTo $Physicians
- * @property &\Cake\ORM\Association\HasMany $PrescriptionItems
+ * @property &\Cake\ORM\Association\BelongsTo $Medications
+ * @property &\Cake\ORM\Association\HasMany $Medications
  *
  * @method \App\Model\Entity\Prescription get($primaryKey, $options = [])
  * @method \App\Model\Entity\Prescription newEntity($data = null, array $options = [])
@@ -50,7 +51,7 @@ class PrescriptionsTable extends Table
             'foreignKey' => 'physician_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('PrescriptionItems', [
+        $this->hasMany('Medications', [
             'foreignKey' => 'prescription_id',
         ]);
     }
@@ -87,6 +88,7 @@ class PrescriptionsTable extends Table
     {
         $rules->add($rules->existsIn(['customer_id'], 'Customers'));
         $rules->add($rules->existsIn(['physician_id'], 'Physicians'));
+        $rules->add($rules->existsIn(['medication_id'], 'Medications'));
 
         return $rules;
     }

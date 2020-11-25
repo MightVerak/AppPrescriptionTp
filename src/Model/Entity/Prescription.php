@@ -9,13 +9,14 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $customer_id
  * @property int $physician_id
+ * @property int $medication_id
  * @property string $details
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Customer $customer
  * @property \App\Model\Entity\Physician $physician
- * @property \App\Model\Entity\PrescriptionItem[] $prescriptionitems
+ * @property \App\Model\Entity\PrescriptionItem[] $prescription_items
  */
 class Prescription extends Entity
 {
@@ -31,11 +32,12 @@ class Prescription extends Entity
     protected $_accessible = [
         'customer_id' => true,
         'physician_id' => true,
+        'medication_id' => true,
         'details' => true,
         'created' => true,
         'modified' => true,
         'customer' => true,
         'physician' => true,
-        'prescriptionitems' => true,
+        'prescription_items' => true,
     ];
 }

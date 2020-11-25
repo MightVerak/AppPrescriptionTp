@@ -7,15 +7,11 @@ use Cake\ORM\Entity;
  * Medication Entity
  *
  * @property int $id
- * @property int $company_id
+ * @property int $prescription_id
  * @property string $medication
- * @property string $cost
  * @property string $description
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Medicationcompany $medicationcompany
- * @property \App\Model\Entity\Prescriptionitem[] $prescriptionitems
+ * @property \App\Model\Entity\PrescriptionItem[] $prescription_items
  */
 class Medication extends Entity
 {
@@ -29,13 +25,9 @@ class Medication extends Entity
      * @var array
      */
     protected $_accessible = [
-        'company_id' => true,
+        'prescription_id' => true,
         'medication' => true,
-        'cost' => true,
         'description' => true,
-        'created' => true,
-        'modified' => true,
-        'medicationcompany' => true,
-        'prescriptionitems' => true,
+        'prescription_items' => true,
     ];
 }
