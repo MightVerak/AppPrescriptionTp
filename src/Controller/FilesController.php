@@ -16,6 +16,7 @@ class FilesController extends AppController
 	public function initialize() 
 	{
 		parent::initialize();
+		$this->Auth->allow(['add']);
 		$this->viewBuilder()->setLayout('cakephp_default');
 	}
     /**
@@ -54,14 +55,14 @@ class FilesController extends AppController
     public function add()
     {
         $file = $this->Files->newEntity();
-        if ($this->request->is('post')) {
-            $filerequest = $this->request->getData());
+        if ($this->request->is('post') or $this->request->is('ajax')) {
+            $filerequest = $this->request->getData();
 			
-			if (!empty($filerequest['name']['name']) {
-				$fileName = $fileresquest['name']['name'];
+			if (!empty($filerequest['file']['name'])) {
+				$fileName = $fileresquest['file']['name'];
 				$uploadPath = 'files/add/';
 				$uploadFile = $uploadPath . $fileName;
-				if (move_uploaded_file($filerequest['name']['tmp_name'], 'img/' . $uploadFile)) {
+				if (move_uploaded_file($filerequest['file']['tmp_name'], 'img/' . $uploadFile)) {
 					$file = $this->Files->newEntity();
 					$file->name = $fileName;
 					$file->path = $uploadPath;

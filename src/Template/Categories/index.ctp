@@ -1,86 +1,82 @@
 <?php
-$urlToRestApi = $this->Url->build('/api/categories', true);
+echo $this->Html->script([
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js',
+	'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit',
+        ], ['block' => 'scriptLibraries']
+);
+$urlToRestApi = $this->Url->build([
+    'prefix' => 'api',
+    'controller' => 'Categories'], true);
 echo $this->Html->scriptBlock('var urlToRestApi = "' . $urlToRestApi . '";', ['block' => true]);
 echo $this->Html->script('Categories/index', ['block' => 'scriptBottom']);
 ?>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 head">
-                    <h5>Categories </h5>
-                    <!-- Add link -->
-                    <div class="float-right">
-                        <a href="javascript:void(0);" class="btn btn-success" data-type="add" data-toggle="modal" data-target="#modalCategoryAddEdit"><i class="plus"></i> New Category</a>
-                    </div>
-                </div>
-                <div class="statusMsg"></div>
-                <!-- List the KrajRegions -->
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Category</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="categoryData">
-                        <?php if (!empty($categories)) {
-                            foreach ($categories as $row) { ?>
-                                <tr>
-                                    <td><?php echo '#' . $row['id']; ?></td>
-                                    <td><?php echo $row['category']; ?></td>
-                                    <td>
-                                        <a href="javascript:void(0);" class="btn btn-warning" 
-                                           rowID="<?php echo $row['id']; ?>" data-type="edit" 
-                                           data-toggle="modal" data-target="#modalCategoryAddEdit">
-                                            edit
-                                        </a>
-                                        <a href="javascript:void(0);" class="btn btn-danger" 
-                                           onclick="return confirm('Are you sure to delete data?') ? 
-                                               categoryAction('delete', '<?php echo $row['id']; ?>') : false;">
-                                            delete
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php }
-                        } else { ?>
-                            <tr><td colspan="5">No categories found</td></tr>
-<?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<!-- salt =
+<?php
+use Cake\Utility\Security;
+echo Security::salt();
+?>
+-->
 
+<div ng-app="app" ng-controller="CategoryCRUDCtrl">
+	<div id="example1"></div>
+	<p style="color:red;">{{ captcha_status}}</p>
+	<input type="hidden" id="id" ng-model="categorie.id" /></td>
+	
+	  <table>
+		<tr>
+			<td width="200">Utilisateur (username):</td>
+			<td><input type="text" id="username" ng-model="user.username" /></td>
+		</tr>
+		<tr>
+			<td width="200">Mot de passe (password):</td>
+			<td><input type="text" id="password" ng-model="user.password" /></td>
+		</tr>
+		<tr>
+		<a ng-click="login(user)">[Connexion] </a>
+		<a ng-click="logout()">[Déconnexion] </a>
+		<a ng-click="changePassword(user.password)">[Changer le mot de passe] </a>
+		</tr>
+	</table>
+	
+    <table>
+        <tr>
+            <td width="100">Category:</td>
+            <td><input type="text" id="category" ng-model="categorie.category" /></td>
+        </tr>
+    </table>
+    <br />
+	<button ng-click="addCategory(categorie.category)">Add Category</button>
+	<button ng-click="updateCategory(categorie.id, categorie.category)">Update Category</button>
+    <!--<a ng-click="getCategory(category.id)">Get Category</a>-->
 
+    <br />
+    <p style="color: green">{{message}}</p>
+    <p style="color: red">{{errorMessage}}</p>
 
-        <!-- Modal Add and Edit Form -->
-        <div class="modal fade" id="modalCategoryAddEdit" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Add new category</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+    <br />
 
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        <div class="statusMsg"></div>
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="category">Category</label>
-                                <input type="text" class="form-control" name="category" id="category" placeholder="Enter the name (category)">
-                            </div>
-                            <input type="hidden" class="form-control" name="id" id="id"/>
-                        </form>
-                    </div>
-
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" id="categorySubmit">SUBMIT</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+	<table class="hoverable bordered">
+		<thead>
+			<tr>
+				<th class="text-align-center" ng-init="getAllCategories()">ID</th>
+				<th class="width-30-pct">Category</th>
+				<th class="text-align-center">Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody ng-init="getAllCategories()">
+			<tr ng-repeat="categorie in categories| filter:search">
+				<td class="text-align-center">
+					{{categorie.id}}
+				</td>
+				<td>
+					{{categorie.category}}
+				</td>
+				<td>
+					<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalCategoryAddEdit" ng-click="getCategory(categorie.id)">Edit</button>
+					<button type="button" class="btn btn-danger btn-sm" ng-click="deleteCategory(categorie.id)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>		
+</div>

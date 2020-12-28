@@ -25,6 +25,9 @@ use Cake\Routing\Route\DashedRoute;
 Router::prefix('api', function ($routes) {
 	$routes->setExtensions(['json', 'xml']);
 	$routes->resources('Categories');
+	$routes->resources('Users');
+	Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
+	$routes->fallbacks(DashedRoute::class);
 });
 
 Router::prefix('admin', function ($routes) { 
@@ -63,7 +66,7 @@ Router::scope('/', function (RouteBuilder $routes) {
         'httpOnly' => true,
     ]));
 
-    $routes->applyMiddleware('csrf');
+//    $routes->applyMiddleware('csrf');
 
     $routes->connect('/', ['controller' => 'Customers', 'action' => 'index']);
 

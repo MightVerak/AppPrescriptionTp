@@ -10,6 +10,7 @@ class CategoriesController extends AppController
     {
         parent::initialize();
         $this->loadComponent('RequestHandler');
+		$this->Auth->allow(['index', 'view', '']);
     }
 
     public function index()

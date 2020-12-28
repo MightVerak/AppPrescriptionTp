@@ -1,118 +1,212 @@
-function getCategories() {
-    $.ajax({
-        type: 'GET',
-        url: urlToRestApi,
-        dataType: "json",
-        success:
-                function (data) {
-                    var categoryTable = $('#categoryData');
-                    categoryTable.empty();
-                    $.each(data.categories, function (key, value)
-                    {
-                        var editDeleteButtons = '</td><td>' +
-                                '<a href="javascript:void(0);" class="btn btn-warning" rowID="' +
-                                    value.id + 
-                                    '" data-type="edit" data-toggle="modal" data-target="#modalCategoryAddEdit">' + 
-                                    'edit</a>' +
-                                '<a href="javascript:void(0);" class="btn btn-danger"' +
-                                    'onclick="return confirm(\'Are you sure to delete data?\') ?' + 
-                                    'categoryAction(\'delete\', \'' + 
-                                    value.id + 
-                                    '\') : false;">delete</a>' +
-                                '</td></tr>';
-                        categoryTable.append('<tr><td>' + value.id + '</td><td>' + value.category + '</td>' + editDeleteButtons);
- 
-                    });
+var onloadCallback = function () {
+	widgetId1 = grecaptcha.render('example1', {
+		'sitekey': '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+		'theme': 'light'
+	});
+};
 
-                }
+var app = angular.module('app',[]);
 
-    });
-}
+var urlToRestApiUsers = urlToRestApi.substring(0, urlToRestApi.lastIndexOf('/') + 1) + 'users';
 
- /* Function takes a jquery form
- and converts it to a JSON dictionary */
-function convertFormToJSON(form) {
-    var array = $(form).serializeArray();
-    var json = {};
-
-    $.each(array, function () {
-        json[this.name] = this.value || '';
-    });
-
-    return json;
-}
-
-
-function categoryAction(type, id) {
-    id = (typeof id == "undefined") ? '' : id;
-    var statusArr = {add: "added", edit: "updated", delete: "deleted"};
-    var requestType = '';
-    var categoryData = '';
-    var ajaxUrl = urlToRestApi;
-    frmElement = $("#modalCategoryAddEdit");
-    if (type == 'add') {
-        requestType = 'POST';
-        categoryData = convertFormToJSON(frmElement.find('form'));
-    } else if (type == 'edit') {
-        requestType = 'PUT';
-		ajaxUrl = ajaxUrl + "/" + id;
-        categoryData = convertFormToJSON(frmElement.find('form'));
-    } else {
-        requestType = 'DELETE';
-        ajaxUrl = ajaxUrl + "/" + id;
+app.controller('CategoryCRUDCtrl', ['$scope', 'CategoryCRUDService', function ($scope, CategoryCRUDService) {
+	  
+    $scope.updateCategory = function () {
+        CategoryCRUDService.updateCategory($scope.categorie.id, $scope.categorie.category)
+          .then(function success(response){
+              $scope.message = 'Category data updated!';
+              $scope.errorMessage = '';
+			  $scope.getAllCategories();
+          },
+				function error(response){
+					$scope.errorMessage = 'Error updating Category!';
+					$scope.message = '';
+          });
     }
-    frmElement.find('.statusMsg').html('');
-    $.ajax({
-        type: requestType,
-        url: ajaxUrl,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(categoryData),
-        success: function (msg) {
-            if (msg) {
-                frmElement.find('.statusMsg').html('<p class="alert alert-success">Category data has been ' + statusArr[type] + ' successfully.</p>');
-                getCategories();
-                if (type == 'add') {
-                    frmElement.find('form')[0].reset();
-                }
-            } else {
-                frmElement.find('.statusMsg').html('<p class="alert alert-danger">Some problem occurred, please try again.</p>');
-            }
+    
+    $scope.getCategory = function (id) {
+//		var id = $scope.category.id;
+        CategoryCRUDService.getCategory(id)
+          .then(function success(response){
+              $scope.categorie = response.data.categorie;
+              $scope.categorie.id = id;
+              $scope.message='';
+              $scope.errorMessage = '';
+          },
+          function error (response){
+              $scope.message = '';
+              if (response.status === 404){
+                  $scope.errorMessage = 'Category not found!';
+              }
+              else {
+                  $scope.errorMessage = "Error getting Category!";
+              }
+          });
+    }
+    
+    $scope.addCategory = function () {
+        if ($scope.categorie != null && $scope.categorie.category) {
+            CategoryCRUDService.addCategory($scope.categorie.category)
+              .then (function success(response){
+                  $scope.message = 'Category added!';
+                  $scope.errorMessage = '';
+				  $scope.getAllCategories();
+              },
+              function error(response){
+                  $scope.errorMessage = 'Error adding Category!';
+                  $scope.message = '';
+            });
         }
-    });
-}
-
-function editCategory(id) {
-    $.ajax({
-        type: 'GET',
-        url: urlToRestApi + "/" + id,
-        dataType: 'JSON',
-        //data: 'action_type=data&id=' + id,
-        success: function (data) {
-            $('#id').val(data.id);
-            $('#category').val(data.category);
+        else {
+            $scope.errorMessage = 'Please enter a name!';
+            $scope.message = '';
         }
-    });
-}
+    }
+    
+    $scope.deleteCategory = function () {
+        CategoryCRUDService.deleteCategory($scope.categorie.id)
+          .then (function success(response){
+              $scope.message = 'Category deleted!';
+              $scope.categorie = null;
+              $scope.errorMessage='';
+			  $scope.getAllCategories();
+          },
+          function error(response){
+              $scope.errorMessage = 'Error deleting Category!';
+              $scope.message='';
+          })
+    }
+	
+	$scope.login = function () {
+		if (grecaptcha.getResponse(widgetId1) == '') {
+			$scope.captcha_status = 'Please verify captcha.';
+			return;
+		}
+		
+		if ($scope.user != null && $scope.user.username) {
+			CategoryCRUDService.login($scope.user)
+				.then(function success(response) {
+					$scope.message = $scope.user.username + ' en session';
+					$scope.errorMessage = '';
+					localStorage.setItem('token', response.data.data.token);
+					localStorage.setItem('user_id', response.data.data.id);
+				},
+					function error(response) {
+						$scope.errorMessage = 'Nom d\'utilisateur ou mot de passe invalide';
+						$scope.message = '';
+					});
+		} else {
+			$scope.errorMessage = 'Entrez un nom d\'utilisateur s.v.p.';
+			$scope.message = '';
+		}
+	}
+	
+	$scope.logout = function() {
+		localStorage.setItem('token', "no token");
+		localStorage.setItem('user', "no user");
+		$scope.message = '';
+		$scope.errorMessage = 'Utilisateur déconnecté';
+	}
+	
+	$scope.changePassword = function() {
+		CategoryCRUDService.changePassword($scope.user.password)
+			.then(function success(response) {
+				$scope.message = 'Mot de passe mis à jour';
+				$scope.errorMessage = '';
+			},
+				function error(response) {
+					$scope.errorMessage = 'Mot de passe inchangé';
+					$scope.message = '';
+				});
+	}
+    
+    $scope.getAllCategories = function () {
+        CategoryCRUDService.getAllCategories()
+          .then(function success(response){
+              $scope.categories = response.data.categories;
+              $scope.message='';
+              $scope.errorMessage = '';
+          },
+          function error (response ){
+              $scope.message='';
+              $scope.errorMessage = 'Error getting Categories!';
+          });
+    }
 
-// Actions on modal show and hidden events
-$(function () {
-    $('#modalCategoryAddEdit').on('show.bs.modal', function (e) {
-        var type = $(e.relatedTarget).attr('data-type');
-        var categoryFunc = "categoryAction('add');";
-        $('.modal-title').html('Add category');
-        if (type == 'edit') {
-			var rowId = $(e.relatedTarget).attr('rowID');
-            categoryFunc = "categoryAction('edit'," + rowId + ");";
-            $('.modal-title').html('Edit category');
-            editCategory(rowId);
-        }
-        $('#categorySubmit').attr("onclick", categoryFunc);
-    });
+}]);
 
-    $('#modalCategoryAddEdit').on('hidden.bs.modal', function () {
-        $('#categorySubmit').attr("onclick", "");
-        $(this).find('form')[0].reset();
-        $(this).find('.statusMsg').html('');
-    });
-});
+app.service('CategoryCRUDService',['$http', function ($http) {
+	
+    this.getCategory = function getCategory(CategoryId){
+        return $http({
+          method: 'GET',
+          url: urlToRestApi + '/' + CategoryId,
+		  headers: { 'X-Requested-With' : 'XMLHttpRequest',
+            'Accept' : 'application/json'}
+        });
+	}
+	
+    this.addCategory = function addCategory(category){
+        return $http({
+          method: 'POST',
+          url: urlToRestApi,
+          data: {category: category},
+		  headers: { 'X-Requested-With' : 'XMLHttpRequest',
+            'Accept' : 'application/json',
+			'Authorization': 'Bearer ' + localStorage.getItem("token")}
+        });
+    }
+	
+    this.deleteCategory = function deleteCategory(id){
+        return $http({
+          method: 'DELETE',
+          url: urlToRestApi + '/' + id,
+		  headers: { 'X-Requested-With' : 'XMLHttpRequest',
+            'Accept' : 'application/json'}
+        });
+    }
+	
+    this.updateCategory = function updateCategory(id, categorie){
+        return $http({
+          method: 'PATCH',
+          url: urlToRestApi + '/' + id,
+          data: {category: categorie},
+		  headers: { 'X-Requested-With' : 'XMLHttpRequest',
+            'Accept' : 'application/json',
+			'Authorization': 'Bearer ' + localStorage.getItem("token")}
+        });
+    }
+	
+    this.getAllCategories = function getAllCategories(){
+        return $http({
+          method: 'GET',
+          url: urlToRestApi,
+		  headers: { 'X-Requested-With' : 'XMLHttpRequest',
+            'Accept' : 'application/json'}
+        });
+    }
+	
+	this.login = function login(user) {
+		return $http({
+			method: 'POST',
+			url: urlToRestApiUsers + '/token',
+			data: {username: user.username, password: user.password},
+			headers: {'X-Requested-With': 'XMLHttpRequest',
+				'Accept': 'application/json'}
+		});
+	}
+	
+	this.changePassword = function changePassword(password) {
+		return $http({
+			method: 'PATCH',
+			url: urlToRestApiUsers + '/' + localStorage.getItem("user_id"),
+			data: {password: password},
+			headers: {'X-Requested-With': 'XMLHttpRequest',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + localStorage.getItem("token")
+			}
+		})
+	
+	}
+
+}]);

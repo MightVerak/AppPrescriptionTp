@@ -18,14 +18,13 @@
 		Les trois types d'utilisateurs sont les techniciens, les superviseurs et les pharmaciens. </br>
 		Les techniciens ne peuvent pas éditer les clients mais peuvent en créer. Les superviseurs peuvent éditer les clients. </br> </br>
 		
-		La fonction d'autocomplete est implémenter avec les noms de médicaments et elle est fonctionnelle dans l'action d'ajout et d'édition d'une prescription. (/Pharmacie_TP/prescriptions) </br>
-		Toutefois, l'autocomplete n'est pas fonctionnel dans le controlleur dédié à l'admin pour une raison quelquonque. Je n'ai pas réussi à faire fonctionner les listes liées. </br>
-		Je souhaitais choisir une catégorie de médicaments qui nous sortirait une liste des médicaments appartenant à cette catégorie. </br> </br>
+		Le démarrage de session ce fait à partir de l'interface categories, toutefois celle-ci m'a posée plusieurs problèmes. Il semble que mon application ne réponde plus correctement avec le modèle des Users. Les mots de passes des utilisateurs n'est plus hachée lorsqu'on les ajoute ou qu'on modifie le mot de passe.</br>
+		Les actions CRUDE fonctionnait avant l'implémentation du démarrage de session et de l'obtention du token mais ne fonctionne pas actuellement. Le bouton edit est le seul qui fonctionne car son action est autorisé sans authentification. Il permet le get de l'objet.</br>
+		Le captcha se retrouve dans le coin supérieur et doit etre coché avant l'action de login. Elle utilise un site-key fourni par Google. </br> </br>
 		
-		Pour la fonction monopage de l'application, j'ai choisi le controlleur Categories. Celui ci s'affiche en monopage pour les utilisateurs réguliers et utilise le Bootstrap pour l'interface Admin.
-		L'action d'édition n'est pas fonctionnel dans ces interfaces. </br>
+		Le cliquer glisser fonctionne en glissant une image dans un formulaire de l'application. Toutefois, dans mon application, l'image est visible pendant quelques instants mais elle n'est pas ajouté a la base de données. </br>
 		
-		Les pdf fonctionnent pour le controlleur Prescriptions.
+		Les listes liées ne sont pas implémentés.
 		
 		Lien Github <a href="https://github.com/MightVerak/PrescriptionsTP">ici<a>
 		</p>

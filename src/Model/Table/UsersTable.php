@@ -68,10 +68,11 @@ class UsersTable extends Table
             ->requirePresence('username', 'create')
             ->notEmptyString('username');
 
-        $validator
+/*        $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
+*/
 
         $validator
             ->scalar('password')
